@@ -28,7 +28,8 @@
 
         <div id="passphrase">
           <input type="text" class="generated">
-          <button class="go">Generate</button>
+          <button id="generate" class="go">Generate</button>
+          <p class="copied-success">Your phrase has been copied to your clipboard</p>
         </div>
 
 
@@ -36,6 +37,7 @@
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+    <script type="text/javascript" src="javascripts/panda.js"></script>
   </body>
 </html>
