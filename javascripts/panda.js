@@ -3,7 +3,7 @@ $(function() {
   // user options - words to use, separator, numbers, special chars
   var generatedPhrase,
       wordsToUse = 4,
-      wordArray = JSON.parse(localStorage.wordArray);
+      wordArray = localStorage.wordArray ? JSON.parse(localStorage.wordArray) : window.wordArray;
 
   // generate function on user click
   $('#generate').click(function() {
