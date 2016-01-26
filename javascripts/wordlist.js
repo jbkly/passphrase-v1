@@ -1,11 +1,9 @@
 /*
-Priority: fallback for browsers that don't support localStorage properly
-
 To dos:
 better way to store/access
 choose from multiple word lists
 organize by length, frequency, part of speech
-regular updates, even automated?
+regular updates, even automate?
 */
 
 if (!localStorage.wordArray) {
