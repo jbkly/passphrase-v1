@@ -862,7 +862,8 @@ section #title .credits.right {
   outline: none;
 }
 
-.copied-success {
+.copied-success,
+.copy-failed {
   margin: 1.5em;
   display: none;
 }
