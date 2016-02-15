@@ -37,7 +37,6 @@ const PassphraseGenerator = React.createClass({
     this.setState({words, generatedPhrase}, this.copyToClipboard);
   },
   copyToClipboard: function() {
-    this.logCurrentPhrase();
     this.phraseInput.select();
 
     try {
@@ -68,7 +67,7 @@ const PassphraseGenerator = React.createClass({
     return (
       <section>
         <div id="title">
-          <h1>Passphrase {Date.now()}</h1>
+          <h1>Passphrase</h1>
           <p>Instantly generate secure, memorable passphrases</p>
         </div>
 
