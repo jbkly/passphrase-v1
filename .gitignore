@@ -40,4 +40,4 @@ add-to-mongo.js
 ngram10k-mongo-export.json
 wordlist-ngram10k.json
 
-build
+# build
