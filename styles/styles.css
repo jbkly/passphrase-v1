@@ -15,7 +15,7 @@
   padding: 0.5em 1em;
   background-color: rgba(0,0,0,0.25);
   color: lightgray;
-  margin-bottom: 1.25em;
+  /*margin-bottom: 1.25em;*/
   text-align: center;
 }
 
@@ -67,10 +67,15 @@
   color: white;
 }
 
+.message-area {
+  height: 3em;
+}
+
 .copied-success,
 .copy-failed {
-  margin: 1.5em;
+  margin: 0;
   display: none;
+  padding: 0.5em 0 1em;
 }
 
 footer {
@@ -92,3 +97,11 @@ footer .credits {
     padding: 0 6px;
   }
 }
+
+@media (max-height: 500px) {
+  footer {
+    display: none;
+  }
+}
+
+/* TODO: reduce input text fontsize to fit smaller screens*/

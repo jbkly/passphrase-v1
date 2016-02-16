@@ -37,11 +37,12 @@ const PassphraseGenerator = React.createClass({
     this.setState({words, generatedPhrase}, this.copyToClipboard);
   },
   copyToClipboard: function() {
-    console.log('copyToClipboard called');
     // store initial cursor position
     let el = this.phraseInput,
         selectionStart = el.selectionStart,
         selectionEnd = el.selectionEnd;
+
+    if (!el.value) return;
 
     el.select();
 
@@ -88,6 +89,10 @@ const PassphraseGenerator = React.createClass({
             value={this.state.generatedPhrase}
             onChange={this.handlePhraseChange}
           />
+          <div className="message-area">
+            <p className="copied-success">Your phrase has been copied to your clipboard</p>
+            <p className="copy-failed">Press &#8984;+C (Mac) or Ctrl+C (Windows) to copy your passphrase</p>
+          </div>
           <div className="button-group">
             <button
               id="generate"
@@ -97,8 +102,6 @@ const PassphraseGenerator = React.createClass({
             </button>
             <CopyButton onClick={this.copyToClipboard} phrase={phrase} />
           </div>
-          <p className="copied-success">Your phrase has been copied to your clipboard</p>
-          <p className="copy-failed">Press &#8984;+C (Mac) or Ctrl+C (Windows) to copy your passphrase</p>
         </div>
       </section>
     );
