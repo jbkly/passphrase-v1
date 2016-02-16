@@ -517,28 +517,6 @@ textarea {
   /* 2 */
 }
 
-button.go {
-  border-radius: 0;
-  padding: 1em 1.5em;
-  background-color: transparent;
-  color: lightgray;
-  border: 2px solid lightgray;
-}
-
-button.go:focus {
-  outline: none;
-}
-
-button.go:hover {
-  background: lightgray;
-  color: black;
-}
-
-button.go:active {
-  background: darkgray;
-  color: white;
-}
-
 /* =============================================================================
    Tables
    ========================================================================== */

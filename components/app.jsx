@@ -30,40 +30,49 @@ const PassphraseGenerator = React.createClass({
       case 'lowerCase':
         words.forEach((word, i, words) => words[i] = word.toLowerCase());
         break;
-      // kebab case? camel case? snake case?
+      // TODO: kebab case? camel case? snake case?
     }
 
     let generatedPhrase = words.join(this.state.separator);
     this.setState({words, generatedPhrase}, this.copyToClipboard);
   },
   copyToClipboard: function() {
-    this.phraseInput.select();
+    console.log('copyToClipboard called');
+    // store initial cursor position
+    let el = this.phraseInput,
+        selectionStart = el.selectionStart,
+        selectionEnd = el.selectionEnd;
+
+    el.select();
 
     try {
       // Now that we've selected the text, execute the copy command
       var successful = document.execCommand('copy');
       if (successful) {
-        $('#passphrase .copied-success').show().delay(3000).fadeOut(1000);
+        // TODO: clear this attached handler to refresh the message on each click <<<<---
+        $('#passphrase .copied-success').show().delay(500).fadeOut(2000);
 
-        // Remove the selections
+        // Remove the selection and replace cursor where it was
         window.getSelection().removeAllRanges();
+        el.setSelectionRange(selectionStart, selectionEnd);
+
       } else {
         this.showAltMessage();
       }
     } catch(err) {
       this.showAltMessage();
     }
+
   },
   handlePhraseChange: function(event) {
     this.setState({generatedPhrase: event.target.value}, this.copyToClipboard);
-  },
-  logCurrentPhrase: function() {
-    console.log(`${this.state.generatedPhrase}`);
   },
   showAltMessage: function() {
     $('#passphrase .copy-failed').show().delay(4000).fadeOut(2000);
   },
   render: function() {
+    let phrase = this.state.generatedPhrase;
+
     return (
       <section>
         <div id="title">
@@ -79,12 +88,35 @@ const PassphraseGenerator = React.createClass({
             value={this.state.generatedPhrase}
             onChange={this.handlePhraseChange}
           />
-          <button id="generate" className="go" onClick={this.generatePhrase} >Generate</button>
+          <div className="button-group">
+            <button
+              id="generate"
+              className="primary"
+              onClick={this.generatePhrase}>
+              Generate
+            </button>
+            <CopyButton onClick={this.copyToClipboard} phrase={phrase} />
+          </div>
           <p className="copied-success">Your phrase has been copied to your clipboard</p>
           <p className="copy-failed">Press &#8984;+C (Mac) or Ctrl+C (Windows) to copy your passphrase</p>
         </div>
       </section>
     );
+  }
+});
+
+const CopyButton = React.createClass({
+  render: function() {
+    if (this.props.phrase) {
+     return (
+        <button
+          id="copy-to-clipboard"
+          className="secondary"
+          onClick={this.props.onClick}>
+          Copy
+        </button>
+      );
+    } else return null;
   }
 });
 
