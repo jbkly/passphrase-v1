@@ -102,6 +102,7 @@ const PassphraseGenerator = React.createClass({
             </button>
             <CopyButton onClick={this.copyToClipboard} phrase={phrase} />
           </div>
+          <OptionsPanel />
         </div>
       </section>
     );
@@ -120,6 +121,24 @@ const CopyButton = React.createClass({
         </button>
       );
     } else return null;
+  }
+});
+
+const OptionsPanel = React.createClass({
+  render: function() {
+    return (
+      <form className="options-panel">
+        <h3>Options</h3>
+        <label className="option">
+          <input type="checkbox" value="limitChars" />
+          &nbsp;Limit characters
+        </label>
+        <label className="option">
+          <input type="checkbox" value="includeNums" />
+          &nbsp;Include numbers
+        </label>
+      </form>
+    );
   }
 });
 
