@@ -15,7 +15,7 @@
   padding: 0.5em 1em;
   background-color: rgba(0,0,0,0.25);
   color: lightgray;
-  /*margin-bottom: 1.25em;*/
+  margin-bottom: 0.75em;
   text-align: center;
 }
 
@@ -79,7 +79,6 @@
 }
 
 .options-panel {
-  padding: 1em;
   text-align: left;
 }
 
