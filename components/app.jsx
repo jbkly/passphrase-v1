@@ -78,7 +78,7 @@ const PassphraseGenerator = React.createClass({
       <section>
         <div id="title">
           <h1>Passphrase</h1>
-          <p>Instantly generate secure, memorable passphrases</p>
+          <p className="lead">Instantly generate secure, memorable passphrases</p>
         </div>
 
         <div id="passphrase">
@@ -104,6 +104,11 @@ const PassphraseGenerator = React.createClass({
           </div>
           <OptionsPanel />
         </div>
+        <footer>
+          <span className="credits">
+            <a href="https://github.com/jbkly/passphrase">View the Project on GitHub</a>
+          </span>
+        </footer>
       </section>
     );
   }

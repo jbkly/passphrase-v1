@@ -3,6 +3,10 @@
   min-width: 320px;
 }
 
+section #title {
+  margin-bottom: 6px;
+}
+
 #passphrase {
   margin: auto;
   text-align: center;
@@ -88,15 +92,20 @@
 
 footer {
   text-align: center;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:3rem;
-  width:100%;
+  width: 100%;
+  line-height: 3rem;
 }
 
 footer .credits {
-  font-size: smaller;
+  font-size: 0.72rem;
+}
+
+footer .credits a {
+  color: #b6b6b6;
+}
+
+footer .credits a:hover {
+  color: #fff;
 }
 
 /* Media Queries */
