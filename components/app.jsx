@@ -145,19 +145,20 @@ const CopyButton = React.createClass({
 
 const OptionsPanel = React.createClass({
   render: function() {
-    return (
-      <form className="options-panel">
-        <h3>Options</h3>
-        <label className="option">
-          <input type="checkbox" value="limitChars" />
-          &nbsp;Limit characters
-        </label>
-        <label className="option">
-          <input type="checkbox" value="includeNums" />
-          &nbsp;Include numbers
-        </label>
-      </form>
-    );
+    return null;
+    // return (
+    //   <form className="options-panel">
+    //     <h3>Options</h3>
+    //     <label className="option">
+    //       <input type="checkbox" value="limitChars" />
+    //       &nbsp;Limit characters
+    //     </label>
+    //     <label className="option">
+    //       <input type="checkbox" value="includeNums" />
+    //       &nbsp;Include numbers
+    //     </label>
+    //   </form>
+    // );
   }
 });
 
