@@ -90,6 +90,7 @@ const PassphraseGenerator = React.createClass({
             onChange={this.handlePhraseChange}
           />
           <div className="button-group">
+            <DisplayCharCount charCount={phrase.length} />
             <button
               id="generate"
               className="primary"
@@ -111,6 +112,19 @@ const PassphraseGenerator = React.createClass({
         </footer>
       </section>
     );
+  }
+});
+
+const DisplayCharCount = React.createClass({
+  render: function() {
+    if (this.props.charCount) {
+      return (
+        <div className="display-char-count">
+          <span>{this.props.charCount} characters</span>
+        </div>
+      );
+    } else return null;
+
   }
 });
 
