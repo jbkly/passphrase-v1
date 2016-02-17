@@ -37,11 +37,12 @@ const PassphraseGenerator = React.createClass({
     this.setState({words, generatedPhrase}, this.copyToClipboard);
   },
   copyToClipboard: function() {
-    console.log('copyToClipboard called');
     // store initial cursor position
     let el = this.phraseInput,
         selectionStart = el.selectionStart,
         selectionEnd = el.selectionEnd;
+
+    if (!el.value) return;
 
     el.select();
 
@@ -77,7 +78,7 @@ const PassphraseGenerator = React.createClass({
       <section>
         <div id="title">
           <h1>Passphrase</h1>
-          <p>Instantly generate secure, memorable passphrases</p>
+          <p className="lead">Instantly generate secure, memorable passphrases</p>
         </div>
 
         <div id="passphrase">
@@ -89,6 +90,7 @@ const PassphraseGenerator = React.createClass({
             onChange={this.handlePhraseChange}
           />
           <div className="button-group">
+            <DisplayCharCount charCount={phrase.length} />
             <button
               id="generate"
               className="primary"
@@ -97,11 +99,32 @@ const PassphraseGenerator = React.createClass({
             </button>
             <CopyButton onClick={this.copyToClipboard} phrase={phrase} />
           </div>
-          <p className="copied-success">Your phrase has been copied to your clipboard</p>
-          <p className="copy-failed">Press &#8984;+C (Mac) or Ctrl+C (Windows) to copy your passphrase</p>
+          <div className="message-area">
+            <p className="copied-success">Your phrase has been copied to your clipboard</p>
+            <p className="copy-failed">Press &#8984;+C (Mac) or Ctrl+C (Windows) to copy your passphrase</p>
+          </div>
+          <OptionsPanel />
         </div>
+        <footer>
+          <span className="credits">
+            <a href="https://github.com/jbkly/passphrase">View the Project on GitHub</a>
+          </span>
+        </footer>
       </section>
     );
+  }
+});
+
+const DisplayCharCount = React.createClass({
+  render: function() {
+    if (this.props.charCount) {
+      return (
+        <div className="display-char-count">
+          <span>{this.props.charCount} characters</span>
+        </div>
+      );
+    } else return null;
+
   }
 });
 
@@ -117,6 +140,24 @@ const CopyButton = React.createClass({
         </button>
       );
     } else return null;
+  }
+});
+
+const OptionsPanel = React.createClass({
+  render: function() {
+    return (
+      <form className="options-panel">
+        <h3>Options</h3>
+        <label className="option">
+          <input type="checkbox" value="limitChars" />
+          &nbsp;Limit characters
+        </label>
+        <label className="option">
+          <input type="checkbox" value="includeNums" />
+          &nbsp;Include numbers
+        </label>
+      </form>
+    );
   }
 });
 

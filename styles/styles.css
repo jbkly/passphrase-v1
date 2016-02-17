@@ -3,32 +3,36 @@
   min-width: 320px;
 }
 
+section #title {
+  margin-bottom: 6px;
+}
+
 #passphrase {
   margin: auto;
   text-align: center;
 }
 
-#passphrase input {
+#passphrase .generated {
   border: none;
   width: calc(100% - 2em);
   font-size: 2em;
   padding: 0.5em 1em;
   background-color: rgba(0,0,0,0.25);
   color: lightgray;
-  margin-bottom: 1.25em;
+  margin-bottom: 0.75em;
   text-align: center;
 }
 
-#passphrase input:focus {
+#passphrase .generated:focus {
   outline: none;
 }
 
-#passphrase input.autocopy::-moz-selection {
+#passphrase .generated.autocopy::-moz-selection {
   background-color: transparent;
   color: #d7cfbe;;
 }
 
-#passphrase input.autocopy::selection {
+#passphrase .generated.autocopy::selection {
   background-color: transparent;
   color: #d7cfbe;;
 }
@@ -67,23 +71,47 @@
   color: white;
 }
 
+#passphrase .display-char-count {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.message-area {
+  height: 3em;
+}
+
 .copied-success,
 .copy-failed {
-  margin: 1.5em;
+  margin: 0;
   display: none;
+  padding: 0.5em 0 1em;
+}
+
+.options-panel {
+  text-align: left;
+}
+
+.options-panel .option {
+  display: block;
 }
 
 footer {
   text-align: center;
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:3rem;
-  width:100%;
+  width: 100%;
+  line-height: 3rem;
 }
 
 footer .credits {
-  font-size: smaller;
+  font-size: 0.72rem;
+}
+
+footer .credits a {
+  color: #b6b6b6;
+}
+
+footer .credits a:hover {
+  color: #fff;
 }
 
 /* Media Queries */
@@ -92,3 +120,11 @@ footer .credits {
     padding: 0 6px;
   }
 }
+
+@media (max-height: 500px) {
+  footer {
+    display: none;
+  }
+}
+
+/* TODO: reduce input text fontsize to fit smaller screens*/
