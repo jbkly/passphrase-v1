@@ -15,7 +15,7 @@ const PassphraseGenerator = React.createClass({
       generatedPhrase: '',
       wordList: localStorage.wordArray ? JSON.parse(localStorage.wordArray) : window.wordArray,
       words: [],
-      options: DEFAULT_OPTIONS,
+      options: localStorage.passphraseOptions ? JSON.parse(localStorage.passphraseOptions) : DEFAULT_OPTIONS,
     }
   },
   generatePhrase: function() {
@@ -105,6 +105,9 @@ const PassphraseGenerator = React.createClass({
 
     const updatedOptions = Object.assign(this.state.options, optionChanged);
     this.setState({ options: updatedOptions });
+
+    // todo: check support, use set/get
+    localStorage.passphraseOptions = JSON.stringify(updatedOptions);
   },
   showAltMessage: function() {
     $('#passphrase .copy-failed').show().delay(4000).fadeOut(2000);
