@@ -26,7 +26,7 @@ const PassphraseGenerator = React.createClass({
     let characterLimit = this.state.options.characterLimit ? 20 : Number.MAX_SAFE_INTEGER;
     let separator = this.state.options.useSpaces ? ' ' : '';
 
-    // generate a set of words until one is found within 
+    // generate a set of words until one is found within the character limit
     do {
       let wordCount = this.state.options.wordCount;
       let number = null;
