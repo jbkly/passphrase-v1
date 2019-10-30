@@ -25,7 +25,7 @@
   "homepage": "https://github.com/jbkly/passphrase#readme",
   "dependencies": {
     "classnames": "2.2.3",
-    "lodash": "4.3.0",
+    "lodash": "4.17.13",
     "react": "0.14.7",
     "react-dom": "0.14.7"
   },
